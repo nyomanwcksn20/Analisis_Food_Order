@@ -77,7 +77,7 @@ df['restaurant_name'] = df['restaurant_name'].replace(dict(zip(old_name, new_nam
 Berikut hasil setelah dilakukan pergantian nama restoran
 ![new_name](pic/restaurant%20name%20mistake%20new%20name%20(5).png)
 
-"==================================================================="
+"==================================================================================="
 
 "Kolom cuisine_type"
 ```
