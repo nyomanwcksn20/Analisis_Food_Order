@@ -36,7 +36,9 @@ print(df.isnull().sum())
 ![nullvalues](pic/check%20null%20value%20(2).png)
 
 Dari gambar diatas, setelah dilakukan pengecekan tidak terdapat nilai null pada setiap kolom di dataframe.
+
 ---
+
 ### Cek Kolom
 "Kolom restaurant_name"
 ```
@@ -70,7 +72,7 @@ old_name = ['Big Wong Restaurant \x8c_¤¾Ñ¼','Empanada Mama (closed)',
             'CafÌ© China', 'Dirty Bird To Go (archived)']
 
 new_name = ['Big Wong Restaurant', 'Empanada Mama', 'Chipotle Mexican Grill', "Joe's Shanghai", 'Cafe China', 'Dirty Bird To Go']
-#print(new_name)
+print(new_name)
 
 df['restaurant_name'] = df['restaurant_name'].replace(dict(zip(old_name, new_name)))
 ```
@@ -81,6 +83,39 @@ Berikut hasil setelah dilakukan pergantian nama restoran
 
 "Kolom cuisine_type"
 ```
-df.cuisine_type.unique()
+print(df.cuisine_type.unique())
 ```
 ![cuisinetype](pic/cek%20cuisine%20(6).png)
+
+Terdapat 14 jenis masakan pada kolom cuisine_type.
+
+---
+
+"Kolom day_of_the_week"
+```
+#print(df.day_of_the_week.unique())
+```
+![dayofweek](pic/cek%20day%20of%20week(7).png)
+
+Pada kolom day_of_the_week hanya memiliki 2 data yaitu weekday dan weekend.
+
+---
+
+"Kolom rating"
+```
+#Check rating
+#print(df.rating.value_counts(normalize=True) * 100)
+```
+![rating](pic/persentage%20rating%20(6).png)
+
+Hasil dari pengecekan kolom rating, cukup banyak pesanan yang tidak diberikan ulasan atau penilaian yaitu sebesar 38,7%, dikarenakan hal tersebut saya akan membuat kolom baru dengan nama rating_new dimana untuk kolom yang berisi "Not given" akan saya ganti menjadi nilai null dengan kode berikut:
+
+```
+df['rating_new'] = df['rating'].replace('Not given', np.nan).astype(float)
+df['rating_new'].isnull().sum()
+```
+![ratingnew](pic/add%20rating%20new%20(7).png)
+
+Kolom rating_new sudah dibuat dimana untuk nilai "Not given" sudah diubah menjadi NaN (Not a Number).
+
+---
