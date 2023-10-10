@@ -26,14 +26,14 @@ Langkah awal yang saya lakukan pada proses ini adalah melakukan pengecekan data,
 df.info() 
 ```
 ![summary](pic/summary.png)
-'Dari gambar diatas, setelah dilakukan pengecekan untuk setiap kolom pada dataframe memiliki jumlah data yang bukan null sebanyak 1898 data, dan untuk tipe datanya terbagi menjadi 3 (int, float dan object).'
+"Dari gambar diatas, setelah dilakukan pengecekan untuk setiap kolom pada dataframe memiliki jumlah data yang bukan null sebanyak 1898 data, dan untuk tipe datanya terbagi menjadi 3 (int, float dan object)."
 
 ```
 #Check null values
 print(df.isnull().sum())
 ```
 ![nullvalues](pic/check%20null%20value%20(2).png)
-'Dari gambar diatas, setelah dilakukan pengecekan tidak terdapat nilai null pada setiap kolom di dataframe.'
+"Dari gambar diatas, setelah dilakukan pengecekan tidak terdapat nilai null pada setiap kolom di dataframe."
 
 ### Cek Kolom
 "Kolom restaurant_name"
@@ -42,7 +42,7 @@ print(df.isnull().sum())
 print(df.restaurant_name.unique())
 ```
 ![restaurantname](pic/restaurant%20name%20(3).png)
-'Dari gambar diatas, terdapat 178 Nama restoran yang berada pada kolom restaurant_name dimana beberapa dari nama restoran tersebut terdapat special character.'
+"Dari gambar diatas, terdapat 178 Nama restoran yang berada pada kolom restaurant_name dimana beberapa dari nama restoran tersebut terdapat special character."
 
 Hal yang saya lakukan pertama adalah memeriksa nama-nama restoran yang menggunakan special character menggunakan kode berikut:
 ```
@@ -56,7 +56,7 @@ weird_restaurant = df[df['restaurant_name'].apply(contains_special_characters)]
 print(weird_restaurant['restaurant_name'].unique())
 ```
 ![weird_name](pic/restaurant%20name%20mistake%20(4).png)
-'Terdapat 6 restoran yang menggunakan special character.'
+"Terdapat 6 restoran yang menggunakan special character."
 
 Selanjutnya setelah sudah menemukan restoran apa saja yang menggunakan special character, saya melakukan perubahan pada nama-nama restoran tersebut dengan kode berikut:
 ```
@@ -73,7 +73,7 @@ df['restaurant_name'] = df['restaurant_name'].replace(dict(zip(old_name, new_nam
 Berikut hasil setelah dilakukan pergantian nama restoran
 ![new_name](pic/restaurant%20name%20mistake%20new%20name%20(5).png)
 
-'==================================================================='
+"==================================================================="
 
 "Kolom cuisine_type"
 ```
