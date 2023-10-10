@@ -40,7 +40,7 @@ Dari gambar diatas, setelah dilakukan pengecekan tidak terdapat nilai null pada 
 ---
 
 ### Cek Kolom
-"Kolom restaurant_name"
+"Mengecek Kolom restaurant_name"
 ```
 #Check restaurant name
 print(df.restaurant_name.unique())
@@ -81,7 +81,7 @@ Berikut hasil setelah dilakukan pergantian nama restoran
 
 ---
 
-"Kolom cuisine_type"
+"Mengecek Kolom cuisine_type"
 ```
 print(df.cuisine_type.unique())
 ```
@@ -91,9 +91,9 @@ Terdapat 14 jenis masakan pada kolom cuisine_type.
 
 ---
 
-"Kolom day_of_the_week"
+"Mengecek Kolom day_of_the_week"
 ```
-#print(df.day_of_the_week.unique())
+print(df.day_of_the_week.unique())
 ```
 ![dayofweek](pic/cek%20day%20of%20week(7).png)
 
@@ -101,10 +101,10 @@ Pada kolom day_of_the_week hanya memiliki 2 data yaitu weekday dan weekend.
 
 ---
 
-"Kolom rating"
+"Mengecek Kolom rating"
 ```
 #Check rating
-#print(df.rating.value_counts(normalize=True) * 100)
+print(df.rating.value_counts(normalize=True) * 100)
 ```
 ![rating](pic/persentage%20rating%20(6).png)
 
@@ -119,3 +119,37 @@ df['rating_new'].isnull().sum()
 Kolom rating_new sudah dibuat dimana untuk nilai "Not given" sudah diubah menjadi NaN (Not a Number).
 
 ---
+
+"Membuat Kolom Waktu Penyelesaian Pesanan"
+Setelah melihat kolom pada dataframe terdapat kolom food_preparation_time dan delivery_time, disini saya ingin membuat satu kolom baru bernama order_completion_time, dimana kolom ini berisi nilai dari jumlah waktu pada food_preparation_time dan delivery_time. Berikut kode untuk membuat kolom baru bernama order_completion_time:
+```
+df['order_completion_time'] = df['food_preparation_time'] + df['delivery_time']
+print(df.head())
+```
+![completion_time](pic/order%20completed%20time%20(9).png)
+
+---
+"Mengecek Berapa Banyak Pesanan Dari Setiap Tipe Masakan dan Membuat Diagram Batang"
+```
+#Untuk mengecek jumlah order setiap tipe masakan
+print(df.groupby("cuisine_type").size())
+
+#Untuk mengecek persentase order setiap tipe masakan
+print(df.cuisine_type.value_counts(normalize=True) * 100)
+
+#Menampilkan diagram batang
+df.cuisine_type.value_counts()
+chart = df.cuisine_type.value_counts().plot(kind='bar')
+plt.xticks(rotation = 45)
+plt.show()
+
+```
+![Jml_order_per_cuisine](pic/order%20per%20type%20of%20cusine%20(10).png) ![prsn_order_per_cuisine](pic/persentage%20order%20per%20cuisine.png)
+
+![bar_cuisine](pic/graphic%20bar%20cuisine_type%20(11).png)
+
+Dari gambar diatas, masakan amerika menjadi masakan yang paling banyak dipesan (30,76%), masakan jepang menjadi masakan kedua yang paling banyak dipesan (24,76%) dan untuk masakan vietnam menjadi masakan paling sedikit dipesan (0,36%).
+
+---
+
+
