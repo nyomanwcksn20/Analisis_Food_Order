@@ -36,8 +36,11 @@ print(df.isnull().sum())
 ![nullvalues](pic/check%20null%20value%20(2).png)
 
 Dari gambar diatas, setelah dilakukan pengecekan tidak terdapat nilai null pada setiap kolom di dataframe.
+<<<<<<< HEAD
 
 ---
+=======
+>>>>>>> 3a847b1f2a444ff8af86220aa1fbaced38276072
 
 ### Cek Kolom
 "Kolom restaurant_name"
@@ -79,7 +82,11 @@ df['restaurant_name'] = df['restaurant_name'].replace(dict(zip(old_name, new_nam
 Berikut hasil setelah dilakukan pergantian nama restoran
 ![new_name](pic/restaurant%20name%20mistake%20new%20name%20(5).png)
 
+<<<<<<< HEAD
 ---
+=======
+"==================================================================================="
+>>>>>>> 3a847b1f2a444ff8af86220aa1fbaced38276072
 
 "Kolom cuisine_type"
 ```
