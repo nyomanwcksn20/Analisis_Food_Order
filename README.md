@@ -268,3 +268,33 @@ plt.show()
 ![graph_fast_prep](pic/graphic%20fastest%20preparation%20(17).png)
 
 Dari hasil diatas dapat disimpulkan untuk waktu tercepat proses persiapan masakan adalah 20 menit dan ke 10 restoran tersebut memiliki waktu hidangan tercepat 20 menit.
+
+---
+
+"Mencari Restoran Dengan Waktu Menyelesaikan Pesanan Tercepat"
+
+Sebelumnya saya sudah membuat kolom order_completion_time, dimana pada kolom ini berisi jumlah waktu dari kolom food_preparation_time dan delivery_time. Selanjutnya saya akan mencari restoran apa yang memiliki waktu proses tercepat mulai dari makanan disiapkan hingga makanan diantarkan. Untuk kodenya sebagai berikut:
+
+```
+#Mencari restorang dengan waktu penyelesaian pesanan tercepat
+df_sorted = df.sort_values(by='order_completion_time', ascending=True)[['restaurant_name','order_completion_time']]
+df_unique = df_sorted.drop_duplicates(subset='restaurant_name', keep='first') 
+top_ten = df_unique.head(10)
+print(top_ten)
+
+#Membuat diagram
+plt.barh(top_ten['restaurant_name'], top_ten['order_completion_time'])
+plt.xlabel('Completed Time (MINUTES)')
+plt.ylabel('Restaurant Name')
+plt.title('Top Ten Restaurants with Fastest Order Completion Time')
+plt.show()
+```
+![sort_completion](pic/check%20completed%20time%20(18).png)
+![graph_completion](pic/graphic%20completed%20time%20(19).png)
+
+Dari hasil pencarian diatas saya mengambil 10 restoran yang menyeselasikan pesanan tercepat dan dapat disimpulkan bahwa The Meatball Shop, RedFarm Broadway, Westville Hudson merupakan restoran dengan penyelesaian pesanan tercepat yaitu 35 menit, dan diikuti oleh Tarallucci e Vino Restaurant, Rubirosa, Five Guys Burgers and Fries, The Smile, Sushi of Gari, Olea, Cafe Mogador dengan waktu 36 menit.
+
+---
+
+`contoh` 
+``contoh 2``
