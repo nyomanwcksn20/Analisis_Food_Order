@@ -17,6 +17,19 @@ Proyek ini merupakan bagian dari pengembangan pribadi saya dalam memahami workfl
 | food_preparation_time	| Waktu Makanan Disiapkan   |
 | delivery_time         | Waktu Makanan Diantarkan  |
 
+---
+
+## Pertanyaan
+1. Jenis masakan apa yang paling dipesan?
+2. Berapa biaya rata-rata per pesanan?
+3. Hari apa yang paling banyak pesanan dalam minggu ini?
+4. Berapa waktu pengiriman rata-rata?
+5. Berapa waktu persiapan makanan rata-rata?
+6. Restoran dengan waktu pengiriman tercepat?
+7. Restoran dengan waktu persiapan tercepat?
+8. Restoran dengan waktu penyelesaian tercepat?
+9. Restoran dengan peringkat berdasarkan jenis masakan?
+
 ## Pengecekan Data
 Langkah awal yang saya lakukan pada proses ini adalah melakukan pengecekan data, dimana saya melakukan pengecekan pada kolom di dataframe. Berikut kode yang digunakan:
 
@@ -296,5 +309,34 @@ Dari hasil pencarian diatas saya mengambil 10 restoran yang menyeselasikan pesan
 
 ---
 
-`contoh` 
-``contoh 2``
+"Membuat Diagram Untuk Rata-Rata Rating Setiap Jenis Masakan"
+
+Pada proses sebelumnya saya menemukan beberapa baris yang tidak memberikan rating, dan saya membuat kolom baru bernama rating_new dimana untuk data yang berisi "Not_given" diubah menjadi NaN. Pada proses ini saya ingin membuat diagram batang untuk rating setiap jenis makanan. Untuk kodenya sebagai berikut:
+
+```
+#Mengecek rata-rata rating dari setiap jenis masakan
+average_ratings = df.groupby('cuisine_type')['rating_new'].mean()
+print(average_ratings)
+
+#Membuat Diagram Rating
+df_sorted = df.sort_values(by='cuisine_type')
+plt.figure(figsize=(10,7))
+sns.barplot(data=df_sorted, y='cuisine_type', x='rating_new', ci=False)
+plt.ylabel('Cuisine Type')
+plt.xlabel('Order Rating')
+plt.xlim(3,5)
+plt.xticks(np.arange(3,5.25,.25))
+plt.title('Overall Order Rating per Cuisine Type')
+plt.grid(axis = 'x', linestyle = '--', linewidth = 0.5)
+plt.show()
+```
+![sort_rating](pic/rating_mean.png)
+![graph_rating](pic/graphic%20overall%20rating%20(20).png)
+
+Dari data diatas dapat ditarik kesimpulan untuk masakan dengan rata-rata rating tertinggi adalah masakan spanyol dengan rata-rata 4.83, dan untuk rata-rata rating masakan terendah adalah masakan vietnam dengan rata-rata 4.00.
+
+---
+
+
+
+
