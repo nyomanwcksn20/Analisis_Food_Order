@@ -186,3 +186,83 @@ plt.show()
 ![bussiest_day_graph](pic/bussiest%20day%20graph(13).png)
 
 Dari data diatas hari yang paling sibuk adalah weekend (71,18%) dengan jumlah pesanan sebanyak 1351 pesanan dan weekday (28.81) sebanyak 547 pesanan.
+
+---
+"Mengecek Kolom delivery_time"
+```
+print(df.delivery_time.describe())
+```
+![desc_delivery_time](pic/desc_delivery_time.png)
+
+Dari pengecekan diatas untuk kolom delivery_time, rata-rata waktu pengiriman makanan adalah 24 menit dengan waktu paling cepatnya adalah 15 menit dan waktu paling lama adalah 33 menit.
+
+---
+
+"Mencari Waktu Rata-Rata Pengiriman Dari Setiap Jenis Masakan"
+```
+#Mencari rata-rata dari jenis masakan
+average_delivery_time = df.groupby('cuisine_type')['delivery_time'].mean().reset_index('cuisine_type')
+print(average_delivery_time)
+
+#Membuat diagram
+average_delivery_time_plot = sns.barplot(x='cuisine_type', y='delivery_time', data=average_delivery_time,palette=colors)
+plt.setp(average_delivery_time_plot.get_xticklabels(), rotation=90)
+average_delivery_time_plot.set(xlabel='Cuisine Type', ylabel='Delivery Time')
+plt.show()
+```
+![mean_delivery_time](pic/mean%20time%20(14).png)
+![grap_mean_delivery_time](pic/graphic%20time%20delivery%20(15).png)
+
+Dari pengecekan diatas masakan korea memiki rata-rata pengiriman lebih cepat dibanding masakan lain yaitu sekitar 20 menit dan masakan vietnam memiliki rata-rata pengiriman terlama yaitu sekitar 26 menit. 
+
+---
+"Mencari Restoran Dengan Waktu Pengiriman Makanan Tercepat"
+Pada proses ini saya ingin mencari 10 restoran dengan waktu pengiriman makanan tercepat. Berikut kode yang saya gunakan:
+```
+#Mencari restoran dengan waktu pengiriman makanan tercepat"
+df_sorted = df.sort_values(by='delivery_time', ascending=True)[['restaurant_name','delivery_time']]
+top_ten = df_sorted.head(10)
+print(top_ten)
+
+#Membuat diagramnya
+plt.barh(top_ten['restaurant_name'], top_ten['delivery_time'])
+plt.xlabel('Delivery Time (MINUTES)')
+plt.ylabel('Restaurant Name')
+plt.title('Top Ten Restaurants with Fastest Delivery Time')
+plt.show()
+```
+![sort_delivery_time](pic/top_ten_deliv.png)
+![graph_delivery_time](pic/graphic%20fastest%20delivery%20(16).png)
+
+Dari hasil pencarian diatas, dapat disimpulkan untuk 10 restoran memiliki kesamaan pada waktu tercepat pengiriman makanan yaitu 15 menit.
+
+---
+"Mengecek Kolom food_preparation_time"
+```
+print(df.food_preparation_time.describe())
+```
+![desc_prep_time](pic/desc_food_prep_time.png)
+
+Setelah dilakukan pengecekan pada kolom food_preparation_time, rata-rata waktu makanan disiapkan adalah 27 menit dengan waktu penyiapan tercepat yaitu 20 menit dan paling lama 35 menit.
+
+---
+
+"Mencari Restoran Dengan Waktu Persiapan Makanan Tercepat"
+Sama seperti proses pada delivery_time, disini saya ingin membuat 10 besar restoran dengan waktu persiapan makanan tercepat. Untuk kodenya sebagai berikut:
+```
+#Menyortir 10 restauran dengan waktu persiapan tercepat
+df_sorted = df.sort_values(by='food_preparation_time', ascending=True)[['restaurant_name','food_preparation_time']]
+top_ten = df_sorted.head(10)
+print(top_ten)
+
+#Membuat diagram untuk 10 restauran dengan waktu persiapan tercepat
+plt.barh(top_ten['restaurant_name'], top_ten['food_preparation_time'])
+plt.xlabel('Preparation Time (MINUTES)')
+plt.ylabel('Restaurant Name')
+plt.title('Top Ten Restaurants with Fastest Preparation Time')
+plt.show()
+```
+![sort_fast_prep](pic/top_ten_prep.png)
+![graph_fast_prep](pic/graphic%20fastest%20preparation%20(17).png)
+
+Dari hasil diatas dapat disimpulkan untuk waktu tercepat proses persiapan masakan adalah 20 menit dan ke 10 restoran tersebut memiliki waktu hidangan tercepat 20 menit.
