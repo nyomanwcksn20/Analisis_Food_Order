@@ -25,10 +25,8 @@ Proyek ini merupakan bagian dari pengembangan pribadi saya dalam memahami workfl
 3. Hari apa yang paling banyak pesanan dalam minggu ini?
 4. Berapa waktu pengiriman rata-rata?
 5. Berapa waktu persiapan makanan rata-rata?
-6. Restoran dengan waktu pengiriman tercepat?
-7. Restoran dengan waktu persiapan tercepat?
-8. Restoran dengan waktu penyelesaian tercepat?
-9. Restoran dengan peringkat berdasarkan jenis masakan?
+6. Restoran dengan waktu penyelesaian tercepat?
+7. Restoran dengan peringkat berdasarkan jenis masakan?
 
 ## Proses Analisis
 Langkah awal yang saya lakukan pada proses ini adalah melakukan pengecekan data, dimana saya melakukan pengecekan pada kolom di dataframe. Berikut kode yang digunakan:
