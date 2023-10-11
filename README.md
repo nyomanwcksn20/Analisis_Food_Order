@@ -217,6 +217,7 @@ Dari pengecekan diatas masakan korea memiki rata-rata pengiriman lebih cepat dib
 
 ---
 "Mencari Restoran Dengan Waktu Pengiriman Makanan Tercepat"
+
 Pada proses ini saya ingin mencari 10 restoran dengan waktu pengiriman makanan tercepat. Berikut kode yang saya gunakan:
 ```
 #Mencari restoran dengan waktu pengiriman makanan tercepat"
@@ -248,6 +249,7 @@ Setelah dilakukan pengecekan pada kolom food_preparation_time, rata-rata waktu m
 ---
 
 "Mencari Restoran Dengan Waktu Persiapan Makanan Tercepat"
+
 Sama seperti proses pada delivery_time, disini saya ingin membuat 10 besar restoran dengan waktu persiapan makanan tercepat. Untuk kodenya sebagai berikut:
 ```
 #Menyortir 10 restauran dengan waktu persiapan tercepat
