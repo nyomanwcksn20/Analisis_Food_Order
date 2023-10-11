@@ -30,10 +30,10 @@ Proyek ini merupakan bagian dari pengembangan pribadi saya dalam memahami workfl
 8. Restoran dengan waktu penyelesaian tercepat?
 9. Restoran dengan peringkat berdasarkan jenis masakan?
 
-## Pengecekan Data
+## Proses Analisis
 Langkah awal yang saya lakukan pada proses ini adalah melakukan pengecekan data, dimana saya melakukan pengecekan pada kolom di dataframe. Berikut kode yang digunakan:
 
-### Cek Ringkasan
+"Mengecek Ringkasan"
 ```
 # Summary
 df.info() 
@@ -52,7 +52,6 @@ Dari gambar diatas, setelah dilakukan pengecekan tidak terdapat nilai null pada 
 
 ---
 
-### Cek Kolom
 "Mengecek Kolom restaurant_name"
 ```
 #Check restaurant name
@@ -336,6 +335,13 @@ plt.show()
 Dari data diatas dapat ditarik kesimpulan untuk masakan dengan rata-rata rating tertinggi adalah masakan spanyol dengan rata-rata 4.83, dan untuk rata-rata rating masakan terendah adalah masakan vietnam dengan rata-rata 4.00.
 
 ---
+
+## Kesimpulan
+
+Dari hasil analisis data food_order.csv dapat ditarik kesimpulan untuk hari yang paling banyak menerima pesanan dalam minggu ini adalah pada saat weekend lalu jenis masakan yang paling banyak dipesan adalah masakan amerika sebanyak 584 pesanan dan untuk rata-rata biaya per pesanan adalah 16.49 dolar.
+
+Untuk rata-rata waktu pengiriman pesanan adalah 24 menit dan 27 menit untuk rata-rata waktu makanan disiapkan. Lalu dari hasil analisis ini dapat diinformasikan untuk restoran dengan penyelesaian waktu tercepat ada 3 restoran yaitu The Meatball Shop, RedFarm Broadway, Westville Hudson dengan waktu tercepat 35 menit. Dan terakhir untuk jenis masakan yang memiliki rata-rata rating tertinggi adalah masakan spanyol dengan rata-rata 4,8.
+
 
 
 
