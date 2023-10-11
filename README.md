@@ -152,4 +152,37 @@ Dari gambar diatas, masakan amerika menjadi masakan yang paling banyak dipesan (
 
 ---
 
+"Mengecek Kolom Biaya Pesanan"
+```
+#Melihat rata-rata biaya dari setiap 
+df.cuisine_type.value_counts()
+print(df.groupby('cuisine_type')['cost_of_the_order'].mean())
 
+#Melihat desripsi dari kolom cost_of_the_order
+print(df.cost_of_the_order.describe())
+```
+![mean_and_desc_cost](pic/mean%20and%20description%20cost.png)
+
+Dari pengecekan yang dilakukan untuk rata-rata dari biaya pesanan adalah 16.49 dolar dengan biaya paling murah adalah 4.47 dolar dan biaya tertinggi 35.41 dolar.
+
+---
+
+"Mencari Hari Paling Sibuk (Paling Banyak Pemesanan)"
+```
+#Menjumlahkan pesanan pada kelompok hari
+most_ordered_week = df.groupby('day_of_the_week').count()
+most_ordered_week = most_ordered_week.reset_index('day_of_the_week')
+print(most_ordered_week[['day_of_the_week', 'order_id']])
+
+#Membuat dalam bentuk persentase
+print(df.day_of_the_week.value_counts(1)*100)
+
+#Membuat Diagram Batang 
+most_ordered_week_plot = sns.barplot(x='day_of_the_week', y='order_id', data=most_ordered_week, palette=colors)
+most_ordered_week_plot.set(xlabel= 'Day of the week', ylabel= 'Total Order')
+plt.show()
+```
+![bussiest_day](pic/check%20bussiest%20dayofweek.png)
+![bussiest_day_graph](pic/bussiest%20day%20graph(13).png)
+
+Dari data diatas hari yang paling sibuk adalah weekend (71,18%) dengan jumlah pesanan sebanyak 1351 pesanan dan weekday (28.81) sebanyak 547 pesanan.
